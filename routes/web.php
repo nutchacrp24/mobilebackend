@@ -25,6 +25,10 @@ Route::get('about', function () {
 });
 Route::get(
     'showprofile',
-    [HomeController::class,
-    'showprofile']
-    );
+    [
+        HomeController::class,
+        'showprofile'
+    ]
+);
+
+
