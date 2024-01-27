@@ -23,12 +23,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create([
-            "product_name" => $request->pd_name,
-            "product_type" => $request->pd_type,
-            "price" => $request->pd_price,
+        $fields = $request->validate([
+            "pd_name" => "required|string",
+            "pd_name" => "required|integer",
+            "pd_price" => "required|double",
         ]);
-        return "Inser";
+
+        Product::create([
+            "product_name" => $fields["pd_name"],
+            "product_type" => $fields["pd_type"],
+            "price" => $fields["pd_price"],
+        ]);
+        return "Inserted Successful";
     }
 
     /**
